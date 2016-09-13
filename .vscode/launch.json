@@ -49,7 +49,7 @@
             "name": "Watson",
             "type": "python",
             "request": "launch",
-            "stopOnEntry": true,
+            "stopOnEntry": false,
             "pythonPath": "${config.python.pythonPath}",
             "program": "${workspaceRoot}/console.py",
             "args": [
