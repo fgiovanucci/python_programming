@@ -53,8 +53,11 @@ def circle(t, r):
     length = circumference / n
     polygon(t, length, n)
 
+def yin(radius):
+    circle(jerry, radius/2)
+    circle(jerry, radius)
 
-circle(jerry, 80)
+yin(80)
 
 
 
