@@ -23,3 +23,6 @@ def mysqrt(a):
             break
         x = y
     return x
+
+#in class answers
+epsilon = 1e-15
