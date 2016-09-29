@@ -1,4 +1,5 @@
 from math import sqrt
+#1 dif from what you did in class but it did run 
 
 def crazy_about_9(a, b):
     if a == 9:
