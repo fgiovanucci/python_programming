@@ -36,3 +36,4 @@ print(team[12:20])
 print(team[:11])
 print(team[12:])
 print(team[4:3])
+
