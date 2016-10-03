@@ -16,25 +16,14 @@ def character_count(my_string, a):
 print(character_count)
 
 
+
 # def word_value(word):
 #     total = 0
 #     for letter in word:
 #         total += ord(letter) - 96
 #     return float(total)
 
-# def receipt(my_list):
-#     max_length = 0
-#     for word in my_list:
-#         if len(word) > max_length:
-#             max_length = len(word)
-#     grand_total = 0
-#     for word in my_list:
-#         print('{:{align}{width}}'.format(word, align='<', width=str(max_length+4))+'{:{align}{width}}'.format('$'+ str(word_value(word))+'0', align='>', width='5'))
-#         grand_total += word_value(word)
-#     print('--------------------------')
-#     print('{:{align}{width}}'.format('Total', align='<', width=str(max_length+4))+'{:{align}{width}}'.format('$'+ str(grand_total)+'0', align='>', width='5'))
 
-# item_list = ['bananas', 'rice', 'paprika', 'potato chips', 'stuff', 'other stuff']
 
 # receipt(item_list)
 
