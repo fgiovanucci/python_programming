@@ -53,3 +53,4 @@ def drunkard_walk(n):
 drunkard_walk(70)
 
 turtle.mainloop()
+
