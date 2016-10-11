@@ -148,7 +148,7 @@ def hangman(secretWord):
     Follows the other limitations detailed in the problem write-up.
     '''
     # FILL IN YOUR CODE HERE...
-    print('Welcome to Hangman. You have 8 guesses and you will not lose a turn for a repeated guess.  Your secret word has', len(secretWord), 'letters.  Good Luck!' )
+    print('Welcome to Hangman. Here are the rules: you have 8 guesses, you will not lose a turn for a repeated guess or a correct guess, after all your guesses have been used and you have not solved the hangman you lose.  Your secret word has', len(secretWord), 'letters.  Good Luck!' )
     lettersGuessed = []
     guesses_allowed = 8
     guesses_taken = 0
