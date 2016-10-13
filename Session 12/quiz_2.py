@@ -7,12 +7,10 @@ def replace_even(data):
     No return is required.
     data: the list of values to process'''
 
-    evens = []
-    odds= []
-    for number in data:
-        if is_even(number):
-            evens.append(number)
-    return evens
+    for i in range(len(ONE_TEN)):
+        if i % 2 == 0:
+            ONE_TEN[i] = 0 
+
 
 
 # Uncomment the following lines to test
@@ -29,22 +27,27 @@ def remove_middle(data):
     data: the list of values to process
     '''
 
-    even[10]
-    odd[9]
-    if len(data) is even:
-        data.remove(5 and 6)
+    if len(data) % 2 == 0:
+        data.pop(len(data)// 2 - 1)
+        data.pop(len(data)// 2)
     else:
-        len(data) is odd
-        data.remove(5)    
+        data.pop(len(data)// 2)
 
+#pop deletes
 
 # Uncomment the following lines to test
-# ONE_TEN = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-# remove_middle(ONE_TEN)
-# print(ONE_TEN)
+ONE_TEN = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+remove_middle(ONE_TEN)
+print(ONE_TEN)
+
+n = 5
+def change(n):
+    return n +1
+print(change(3))
+print(n)
 
 
-# def insert_integer(data, number):
+def insert_integer(data, number):
     '''
     given a sortedlist of integers, insert a new integer into
     its proper position so that the new list stays sorted. 
@@ -54,13 +57,15 @@ def remove_middle(data):
     return: a new list of sorted integers with previous numbers and 
     the new number
     '''
-data = [1, 3, 40, 75, 90, 2000, 2001, 2016]
-data.insert(7,2015)    
-print(data)
+    for i in range(len(data)):
+        if data[i] > number:
+            data.insert(i, number)  
+        break
+    return data
 # Uncomment the following lines to test
-    
-# new_data = insert_integer(data, 2015)
-# print(new_data)
+data = [1, 3, 40, 75, 90, 2000, 2001, 2016]
+new_data = insert_integer(data, 2015)
+print(new_data)
 
 
 def print_hist(data):
@@ -79,4 +84,12 @@ def print_hist(data):
     C: ******
     Z: ********
     '''
-    pass
+    key_list = data.keys()
+    key_list.sort()
+    print('Testing key list after sorting', key_list)
+    for key in key_list:
+        num_ast = data.get(key)
+        print('%: ' %(key) + num_ast * '*')
+
+letter_counts={'C': 6, 'A': 3, 'B': 10, 'Z': 8}
+print_hist(letter_counts)
