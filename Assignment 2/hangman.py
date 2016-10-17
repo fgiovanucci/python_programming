@@ -22,7 +22,7 @@ def loadWords():
     print("Loading word list from file...")
     # inFile: file
     inFile = open(WORDLIST_FILENAME, 'r')
-    # line: string
+    # line: string       'r' is for read only 
     line = inFile.readline()
     # wordlist: list of strings
     wordlist = line.split()
@@ -54,9 +54,9 @@ def isWordGuessed(secretWord, lettersGuessed):
       False otherwise
     '''
     for letters in secretWord:
-        if letters in lettersGuessed:
-            return True
-    return False
+        if letters not in lettersGuessed:
+            return False
+    return True
     
 # When you've completed your function isWordGuessed, uncomment these three lines
 # and run this file to test!
@@ -80,10 +80,10 @@ def getGuessedWord(secretWord, lettersGuessed):
     end_string = ''
     for letters in secretWord:
         if letters in lettersGuessed:
-            end_string + letters
+            end_string = end_string + letters
         else:
-            end_string + '_'
-    return new_string
+            end_string = end_string + '_'
+    return end_string
 
 # When you've completed your function getGuessedWord, uncomment these three lines
 # and run this file to test!
@@ -107,14 +107,11 @@ def getAvailableLetters(lettersGuessed):
     # Hint: You might consider using string.ascii_lowercase, which
     # is a string comprised of all lowercase letters.
     import string 
-    available_letters = list(string.ascii_lowercase)
-    for letters in lettersGuessed:
-        if letters in available_letters:
-            available_letters.remove(letters)
+    available_letters = ''
+    for letters in string.ascii_lowercase:
+        if letters not in lettersGuessed:
+            available_letters = available_letters + letters
     return available_letters
-
-
-      
 
 
 # When you've completed your function getAvailableLetters, uncomment these two lines
@@ -150,26 +147,26 @@ def hangman(secretWord):
     # FILL IN YOUR CODE HERE...
     print('Welcome to Hangman. Here are the rules: you have 8 guesses, you will not lose a turn for a repeated guess or a correct guess, after all your guesses have been used and you have not solved the hangman you lose.  Your secret word has', len(secretWord), 'letters.  Good Luck!' )
     lettersGuessed = []
-    guesses_allowed = 8
-    guesses_taken = 0
-while not isWordGuessed(secretWord, lettersGuessed) and guesses_allowed < 8:
-    letter = ('Guess a letter. ')
-    print(getAvailableLetters(lettersGuessed))
-    print(getGuessedWord(secretWord, lettersGuessed))
-    if letter in secretWord:
-        print('You have guessed correctly.')
-    elif letter in lettersGuessed:
-        print('You have already guessed this letter.')
+    GUESSES_ALLOWED = 8
+    guesses_taken = 0 # 
+    while not isWordGuessed(secretWord, lettersGuessed):
+        print(getAvailableLetters(lettersGuessed))
+        letter = input('Guess a letter. ')
+        print(getGuessedWord(secretWord, lettersGuessed))
+        if letter in secretWord:
+            print('You have guessed correctly.')
+        elif letter in lettersGuessed:
+            print('You have already guessed this letter.')
+        else:
+            print('You have guessed wrong.  Please guess again!')
+            guesses_taken = guesses_taken + 1
+            print('You have', GUESSES_ALLOWED - guesses_taken,'left.')
+        lettersGuessed.append(letter)
+    if guesses_taken == GUESSES_ALLOWED:
+        print('You are out of turns.  You lose')
+        print('The secret word was', secretWord,'.')
     else:
-        print('You have guessed wrong.  Please guess again!')
-        guesses_taken = guesses_taken + 1
-        print('You have', guesses_allowed - guesses_taken,'left.')
-    lettersGuessed.append(letter)
-if guesses_taken == guesses_allowed:
-    print('You are out of turns.  You lose')
-    print('The secret word was', secretWord,'.')
-else:
-    print('Congrats, you won!')
+        print('Congrats, you won!')
 
 
 

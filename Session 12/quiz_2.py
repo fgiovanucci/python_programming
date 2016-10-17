@@ -60,7 +60,7 @@ def insert_integer(data, number):
     for i in range(len(data)):
         if data[i] > number:
             data.insert(i, number)  
-        break
+            break
     return data
 # Uncomment the following lines to test
 data = [1, 3, 40, 75, 90, 2000, 2001, 2016]
@@ -84,12 +84,12 @@ def print_hist(data):
     C: ******
     Z: ********
     '''
-    key_list = data.keys()
+    key_list = list(data.keys())
     key_list.sort()
     print('Testing key list after sorting', key_list)
     for key in key_list:
         num_ast = data.get(key)
-        print('%: ' %(key) + num_ast * '*')
+        print('%s: ' %(key) + num_ast * '*')
 
 letter_counts={'C': 6, 'A': 3, 'B': 10, 'Z': 8}
 print_hist(letter_counts)
