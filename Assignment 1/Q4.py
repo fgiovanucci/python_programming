@@ -1,7 +1,6 @@
 import math
 import random
 
-
 power_of_two = [3,7,15,31,63]
 
 pile = random.randrange(10, 101)

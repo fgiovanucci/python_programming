@@ -8,6 +8,7 @@ print(drunk)
 # drunk.turtlesize(.6,.6,.6)
 print(drunk)
 
+
 turtle.mainloop()
 def drunkard_walk(n):
     drunk.circle(5)

@@ -5,5 +5,6 @@ def ispalindrome(s):
     return ispalindrome(s[1:-1])
 
 s = 'dog'
+
 print(ispalindrome(s))
 
